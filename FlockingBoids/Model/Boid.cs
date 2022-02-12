@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Boid
+    public class Boid
     {
         public Position Position;
         public Velocity Velocity;

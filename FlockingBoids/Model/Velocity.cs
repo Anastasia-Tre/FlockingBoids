@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Velocity
+    public class Velocity
     {
         public float X, Y;
 

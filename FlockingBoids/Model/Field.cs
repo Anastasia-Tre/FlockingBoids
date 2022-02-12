@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class Field
+    public class Field
     {
         readonly float Width, Height;
         public readonly Boid[] Boids;
