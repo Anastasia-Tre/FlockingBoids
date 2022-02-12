@@ -8,12 +8,15 @@ namespace Model
 {
     class Boid
     {
-        public float X, Y;
-        public float Velocity;
+        public Position Position;
+        public Velocity Velocity;
+        public float Speed;
+        public bool IsEnemy = false;
 
-        public Boid(float x, float y)
+        public Boid(float x, float y, float xVel, float yVel)
         {
-            (X, Y) = (x, y);
+            Position = new Position(x, y);
+            Velocity = new Velocity(xVel, yVel);
         }
     }
 }
