@@ -23,8 +23,16 @@ namespace Model
             Y += position.Y;
         }
 
+        public (double x, double y) Delta(Position otherPosition)
+        {
+            return (otherPosition.X - X, otherPosition.Y - Y);
+        }
 
-
+        public double Distance(Position otherPosition)
+        {
+            var (dX, dY) = Delta(otherPosition);
+            return Math.Sqrt(dX * dX + dY * dY);
+        }
 
     }
 }
