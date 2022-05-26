@@ -1,4 +1,6 @@
-﻿namespace Model
+﻿using System;
+
+namespace Model
 {
     public class Position
     {
@@ -14,6 +16,14 @@
             X += velocity.X * step;
             Y += velocity.Y * step;
         }
+
+        public void Shift(Position position)
+        {
+            X += position.X;
+            Y += position.Y;
+        }
+
+
 
 
     }
