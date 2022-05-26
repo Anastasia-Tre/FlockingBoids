@@ -33,6 +33,5 @@ namespace Model
             var (dX, dY) = Delta(otherPosition);
             return (float)Math.Sqrt(dX * dX + dY * dY);
         }
-
     }
 }

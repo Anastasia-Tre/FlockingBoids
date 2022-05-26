@@ -4,26 +4,16 @@ namespace Renderer
 {
     public class RendererSkiaSharp : IRenderer
     {
-        private SKCanvas _canvas;
-        private SKPaint _paint;
+        private readonly SKCanvas _canvas;
+        private readonly SKPaint _paint;
 
         public RendererSkiaSharp(SKCanvas canvas)
         {
             _canvas = canvas;
-            _paint = new SKPaint()
+            _paint = new SKPaint
             {
-                IsAntialias = true,
+                IsAntialias = true
             };
-        }
-
-        private SKColor ConvertColor(Color color)
-        {
-            return new SKColor(color.R, color.G, color.B, color.A);
-        }
-
-        private SKPoint ConvertPoint(Point pt)
-        {
-            return new SKPoint((float)pt.X, (float)pt.Y);
         }
 
         public void Clear(Color color)
@@ -46,6 +36,16 @@ namespace Renderer
         {
             _paint.Color = ConvertColor(color);
             _canvas.DrawCircle(ConvertPoint(center), (float)radius, _paint);
+        }
+
+        private SKColor ConvertColor(Color color)
+        {
+            return new SKColor(color.R, color.G, color.B, color.A);
+        }
+
+        private SKPoint ConvertPoint(Point pt)
+        {
+            return new SKPoint((float)pt.X, (float)pt.Y);
         }
     }
 }
