@@ -2,10 +2,10 @@
 {
     public class Boid
     {
-        public Position Position;
-        public Velocity Velocity;
-        public float Speed;
         public bool IsEnemy = false;
+        public Position Position;
+        public float Speed;
+        public Velocity Velocity;
 
         public Boid(float x, float y, float xVel, float yVel)
         {

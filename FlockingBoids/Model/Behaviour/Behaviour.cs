@@ -2,11 +2,11 @@
 {
     public abstract class Behaviour
     {
-        public float Weight;
-        public float Distance;
         public Boid[] Boids;
+        public float Distance;
+        public float Weight;
 
-        public Behaviour(Boid[] boids, float distance, float weight)
+        protected Behaviour(Boid[] boids, float distance, float weight)
         {
             Boids = boids;
             Distance = distance;
