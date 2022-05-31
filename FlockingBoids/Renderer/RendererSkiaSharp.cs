@@ -21,6 +21,11 @@ namespace Renderer
         }
 
 
+        public void DrawBoid(Boid boid, Color color)
+        {
+            FillCircle(new Point(boid.Position.X, boid.Position.Y), boidRadius, color);
+        }
+
         public void Clear(Color color)
         {
             _canvas.Clear(ConvertColor(color));
