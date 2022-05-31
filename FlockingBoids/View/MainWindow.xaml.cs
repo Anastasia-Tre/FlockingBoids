@@ -20,8 +20,8 @@ namespace View
         private void Reset()
         {
             field = new Field(
-                width: (float)ResultField.Width,
-                height: (float)ResultField.Height,
+                width: (float)Width, // to fix
+                height: (float)Height, // to fix
                 boidsCount: 100, // to fix
                 enemyCount: 10 // to fix
             );
