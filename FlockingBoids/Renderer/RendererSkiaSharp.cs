@@ -1,4 +1,5 @@
 ﻿using SkiaSharp;
+using Model;
 
 namespace Renderer
 {
@@ -6,6 +7,9 @@ namespace Renderer
     {
         private readonly SKCanvas _canvas;
         private readonly SKPaint _paint;
+        private readonly Color backgroundColor = new Color(0, 100, 50);
+        private readonly Color boidColor = new Color(250, 100, 50);
+        private readonly float boidRadius = 4f;
 
         public RendererSkiaSharp(SKCanvas canvas)
         {
@@ -15,6 +19,7 @@ namespace Renderer
                 IsAntialias = true
             };
         }
+
 
         public void Clear(Color color)
         {
@@ -32,10 +37,10 @@ namespace Renderer
             _canvas.DrawLine(ConvertPoint(pt1), ConvertPoint(pt2), _paint);
         }
 
-        public void FillCircle(Point center, double radius, Color color)
+        public void FillCircle(Point center, float radius, Color color)
         {
             _paint.Color = ConvertColor(color);
-            _canvas.DrawCircle(ConvertPoint(center), (float)radius, _paint);
+            _canvas.DrawCircle(ConvertPoint(center), radius, _paint);
         }
 
         private SKColor ConvertColor(Color color)
