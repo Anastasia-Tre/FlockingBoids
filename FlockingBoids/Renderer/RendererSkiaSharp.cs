@@ -7,8 +7,8 @@ namespace Renderer
     {
         private readonly SKCanvas _canvas;
         private readonly SKPaint _paint;
-        private readonly Color _backgroundColor = new Color(0, 100, 50);
-        private readonly Color _boidColor = new Color(250, 100, 50);
+        private readonly Color _backgroundColor = new(0, 0, 50);
+        private readonly Color _boidColor = new(250, 100, 250);
         private const float BoidRadius = 4f;
 
         public RendererSkiaSharp(SKCanvas canvas)
