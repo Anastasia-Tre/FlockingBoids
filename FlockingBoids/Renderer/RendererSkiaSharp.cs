@@ -20,6 +20,15 @@ namespace Renderer
             };
         }
 
+        public void Render(Field field)
+        {
+            Clear(backgroundColor);
+            foreach (var boid in field.Boids)
+            {
+                DrawBoid(boid, boidColor);
+            }
+
+        }
 
         public void DrawBoid(Boid boid, Color color)
         {
