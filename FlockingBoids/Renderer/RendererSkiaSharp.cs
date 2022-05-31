@@ -7,9 +7,9 @@ namespace Renderer
     {
         private readonly SKCanvas _canvas;
         private readonly SKPaint _paint;
-        private readonly Color backgroundColor = new Color(0, 100, 50);
-        private readonly Color boidColor = new Color(250, 100, 50);
-        private readonly float boidRadius = 4f;
+        private readonly Color _backgroundColor = new Color(0, 100, 50);
+        private readonly Color _boidColor = new Color(250, 100, 50);
+        private const float BoidRadius = 4f;
 
         public RendererSkiaSharp(SKCanvas canvas)
         {
@@ -22,17 +22,17 @@ namespace Renderer
 
         public void Render(Field field)
         {
-            Clear(backgroundColor);
+            Clear(_backgroundColor);
             foreach (var boid in field.Boids)
             {
-                DrawBoid(boid, boidColor);
+                DrawBoid(boid, _boidColor);
             }
 
         }
 
         public void DrawBoid(Boid boid, Color color)
         {
-            FillCircle(new Point(boid.Position.X, boid.Position.Y), boidRadius, color);
+            FillCircle(new Point(boid.Position.X, boid.Position.Y), BoidRadius, color);
         }
 
         public void Clear(Color color)
@@ -45,7 +45,7 @@ namespace Renderer
             _paint.Dispose();
         }
 
-        public void DrawLine(Point pt1, Point pt2, double lineWidth, Color color)
+        public void DrawLine(Point pt1, Point pt2, float lineWidth, Color color)
         {
             _paint.Color = ConvertColor(color);
             _canvas.DrawLine(ConvertPoint(pt1), ConvertPoint(pt2), _paint);
