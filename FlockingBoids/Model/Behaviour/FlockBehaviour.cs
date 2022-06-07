@@ -32,8 +32,7 @@ namespace Model
             }
             centerX /= neighborCount;
             centerY /= neighborCount;
-
-            // steer toward the flock
+            
             var X = (centerX - currentBoid.Position.X) * Weight;
             var Y = (centerY - currentBoid.Position.Y) * Weight;
 
