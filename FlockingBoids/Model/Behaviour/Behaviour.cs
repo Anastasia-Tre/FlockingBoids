@@ -1,4 +1,4 @@
-﻿namespace Model.Behaviour
+﻿namespace Model
 {
     public abstract class Behaviour
     {

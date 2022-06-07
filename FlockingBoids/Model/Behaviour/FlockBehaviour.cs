@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.Behaviour
+namespace Model
 {
     internal class FlockBehaviour : Behaviour
     {
@@ -15,7 +15,7 @@ namespace Model.Behaviour
 
         public override Velocity GetVelocity(Boid currentBoid)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

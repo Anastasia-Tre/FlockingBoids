@@ -6,6 +6,7 @@
         public Position Position;
         public float Speed;
         public Velocity Velocity;
+        public Behaviour[] Behaviours;
 
         public Boid(float x, float y, float xVel, float yVel)
         {
