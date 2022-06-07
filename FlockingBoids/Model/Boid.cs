@@ -24,7 +24,11 @@ namespace Model
 
         public void Move()
         {
-
+            Velocity totalVelocity;
+            foreach (var behaviour in _behaviours)
+            {
+                
+            }
         }
     }
 }
