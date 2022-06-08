@@ -4,11 +4,11 @@ namespace Model
 {
     public class Boid
     {
+        private readonly List<Behaviour.Behaviour> _behaviours;
         public bool IsEnemy = false;
         public Position Position;
         public float Speed;
         public Velocity Velocity;
-        private readonly List<Behaviour.Behaviour> _behaviours;
 
         public Boid(float x, float y, float xVel, float yVel)
         {
@@ -22,13 +22,13 @@ namespace Model
             _behaviours.Add(behaviour);
         }
 
-        public void Move()
+        /*public void Move()
         {
             // Velocity totalVelocity;
             //foreach (var behaviour in _behaviours)
             {
                 
             }
-        }
+        }*/
     }
 }
