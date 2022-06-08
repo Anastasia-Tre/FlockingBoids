@@ -13,24 +13,22 @@
                 Distance *= 2;
 
             var neighborCount = 0;
-            float centerX = 0;
-            float centerY = 0;
+            var resultVelocity = new Velocity(0, 0);
+
             foreach (var boid in Boids)
                 if (boid.Position.Distance(currentBoid.Position) < Distance)
                 {
-                    centerX += boid.Position.X;
-                    centerY += boid.Position.Y;
+                    resultVelocity += boid.Position;
                     neighborCount += 1;
                 }
 
-            centerX /= neighborCount;
-            centerY /= neighborCount;
+            //resultVelocity /= neighborCount;
+            //resultVelocity -= currentBoid.Position;
+            //resultVelocity *= Weight;
 
-            var x = (centerX - currentBoid.Position.X) * Weight;
-            var y = (centerY - currentBoid.Position.Y) * Weight;
-
-            var resultVelocity = new Velocity(x, y);
-            return resultVelocity;
+            resultVelocity = resultVelocity / neighborCount - currentBoid.Position;
+            currentBoid.Velocity += resultVelocity * Weight;
+            return resultVelocity * Weight;
         }
     }
 }
