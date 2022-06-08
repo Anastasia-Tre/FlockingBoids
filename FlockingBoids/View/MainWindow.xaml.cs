@@ -1,4 +1,5 @@
 ﻿using Renderer;
+using Controller;
 
 namespace View
 {
@@ -7,12 +8,12 @@ namespace View
     /// </summary>
     public partial class MainWindow
     {
-        private readonly Controller.Controller _controller;
+        private readonly Controler _controller;
 
         public MainWindow()
         {
             InitializeComponent();
-            _controller = new Controller.Controller();
+            _controller = new Controler();
             Reset();
         }
 
