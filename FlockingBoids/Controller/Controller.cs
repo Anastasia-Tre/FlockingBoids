@@ -22,7 +22,5 @@ namespace Controller
         {
             Renderer = renderer;
         }
-
-
     }
 }

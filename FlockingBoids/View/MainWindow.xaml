@@ -8,5 +8,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <skia:SKElement x:Name="ResultField" PaintSurface="SKElement_PaintSurface" />
+        
     </Grid>
 </Window>
