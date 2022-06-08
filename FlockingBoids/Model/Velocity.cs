@@ -34,5 +34,16 @@ namespace Model
             X = targetX;
             Y = targetY;
         }
+
+
+        // add override of operators
+        // vel + vel, vel - vel
+        // vel / float, vwl * float
+        // vel + pos, vel - pos
+
+
+        
+
+
     }
 }
