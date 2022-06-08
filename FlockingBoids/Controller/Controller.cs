@@ -1,26 +1,12 @@
 ﻿using Model;
 using Renderer;
-using SkiaSharp;
 
 namespace Controller
 {
     public class Controller
     {
-        Field _field;
-
-        public Field Field
-        {
-            get => _field;
-            set => _field = value;
-        }
-
-        public IRenderer Renderer
-        {
-            get => _renderer;
-            set => _renderer = value;
-        }
-
-        IRenderer _renderer;
+        public Field Field { get; private set; }
+        public IRenderer Renderer { get; private set; }
 
         public Controller()
         {
@@ -29,7 +15,7 @@ namespace Controller
 
         public void CreateField(float width, float height)
         {
-            _field = new Field(
+            Field = new Field(
                 width: width, // to fix
                 height: height, // to fix
                 boidsCount: 100, // to fix
@@ -39,7 +25,7 @@ namespace Controller
 
         public void CreateRenderer(IRenderer renderer)
         {
-            _renderer = renderer;
+            Renderer = renderer;
         }
 
 
