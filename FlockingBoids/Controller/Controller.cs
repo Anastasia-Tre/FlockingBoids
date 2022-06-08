@@ -8,11 +8,6 @@ namespace Controller
         public Field Field { get; private set; }
         public IRenderer Renderer { get; private set; }
 
-        public Controller()
-        {
-            
-        }
-
         public void CreateField(float width, float height)
         {
             Field = new Field(
