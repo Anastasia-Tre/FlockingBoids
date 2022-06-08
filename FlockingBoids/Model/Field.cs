@@ -33,6 +33,14 @@ namespace Model
             }
         }
 
+        public void Advance(float stepSize = 1)
+        {
+            Parallel.ForEach(Boids, boid =>
+                {
+                    boid.Move(stepSize);
+                }
+            );
 
+        }
     }
 }
