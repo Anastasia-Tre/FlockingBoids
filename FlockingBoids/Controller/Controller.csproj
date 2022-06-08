@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj" />
     <ProjectReference Include="..\Renderer\Renderer.csproj" />
   </ItemGroup>
 

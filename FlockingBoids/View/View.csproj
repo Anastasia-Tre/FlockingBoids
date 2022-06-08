@@ -11,7 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Renderer\Renderer.csproj" />
+    <ProjectReference Include="..\Controller\Controller.csproj" />
   </ItemGroup>
+
+  
 
 </Project>
