@@ -42,7 +42,15 @@ namespace Model
         // vel + pos, vel - pos
 
 
-        
+        public static Velocity operator +(Velocity vel1, Velocity vel2)
+        {
+            return new Velocity(vel1.X + vel2.X, vel1.Y + vel2.Y);
+        }
+
+        public static Velocity operator -(Velocity vel1, Velocity vel2)
+        {
+            return new Velocity(vel1.X - vel2.X, vel1.Y - vel2.Y);
+        }
 
 
     }
