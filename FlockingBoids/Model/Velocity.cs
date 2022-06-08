@@ -39,7 +39,7 @@ namespace Model
         // add override of operators
         // vel + vel, vel - vel +
         // vel / float, vwl * float +
-        // vel + pos, vel - pos
+        // vel + pos, vel - pos +
 
 
         public static Velocity operator +(Velocity vel1, Velocity vel2)
@@ -52,14 +52,24 @@ namespace Model
             return new Velocity(vel1.X - vel2.X, vel1.Y - vel2.Y);
         }
 
-        public static Velocity operator *(Velocity vel1, float num)
+        public static Velocity operator *(Velocity vel, float num)
         {
-            return new Velocity(vel1.X * num, vel1.Y * num);
+            return new Velocity(vel.X * num, vel.Y * num);
         }
 
-        public static Velocity operator /(Velocity vel1, float num)
+        public static Velocity operator /(Velocity vel, float num)
         {
-            return new Velocity(vel1.X / num, vel1.Y / num);
+            return new Velocity(vel.X / num, vel.Y / num);
+        }
+
+        public static Velocity operator +(Velocity vel, Position pos)
+        {
+            return new Velocity(vel.X + pos.X, vel.Y + pos.Y);
+        }
+
+        public static Velocity operator -(Velocity vel, Position pos)
+        {
+            return new Velocity(vel.X - pos.X, vel.Y - pos.Y);
         }
 
     }
