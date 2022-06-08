@@ -35,13 +35,6 @@ namespace Model
             Y = targetY;
         }
 
-
-        // add override of operators
-        // vel + vel, vel - vel +
-        // vel / float, vwl * float +
-        // vel + pos, vel - pos +
-
-
         public static Velocity operator +(Velocity vel1, Velocity vel2)
         {
             return new Velocity(vel1.X + vel2.X, vel1.Y + vel2.Y);
