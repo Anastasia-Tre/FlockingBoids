@@ -1,5 +1,4 @@
-﻿using Model;
-using Renderer;
+﻿using Renderer;
 
 namespace View
 {
@@ -8,29 +7,25 @@ namespace View
     /// </summary>
     public partial class MainWindow
     {
-        private Field _field;
+        private readonly Controller.Controller _controller;
 
         public MainWindow()
         {
             InitializeComponent();
+            _controller = new Controller.Controller();
             Reset();
         }
 
         private void Reset()
         {
-            _field = new Field(
-                width: (float)Width, // to fix
-                height: (float)Height, // to fix
-                boidsCount: 100, // to fix
-                enemyCount: 10 // to fix
-            );
+            _controller.CreateField((float)Width, (float)Height);
 
         }
 
         private void SKElement_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
         {
-            var renderer = new RendererSkiaSharp(e.Surface.Canvas);
-            renderer.Render(_field);
+            _controller.CreateRenderer(new RendererSkiaSharp(e.Surface.Canvas));
+            _controller.Renderer.Render(_controller.Field);
         }
     }
 }
