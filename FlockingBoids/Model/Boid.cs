@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Model
 {
@@ -10,10 +11,11 @@ namespace Model
         public float Speed;
         public Velocity Velocity;
 
-        public Boid(float x, float y, float xVel, float yVel)
+        public Boid(float x, float y, float xVel, float yVel, float speed = 1f)
         {
             Position = new Position(x, y);
             Velocity = new Velocity(xVel, yVel);
+            Speed = speed;
             _behaviours = new List<Behaviour.Behaviour>();
         }
 
@@ -22,13 +24,14 @@ namespace Model
             _behaviours.Add(behaviour);
         }
 
-        /*public void Move()
+        public void Move(float stepSize)
         {
-            // Velocity totalVelocity;
-            //foreach (var behaviour in _behaviours)
-            {
-                
-            }
-        }*/
+            Velocity totalVelocity = new(0, 0);
+            totalVelocity = _behaviours.Aggregate(totalVelocity,
+                (current, behaviour) => current + behaviour.GetVelocity(this));
+
+            Velocity.SetSpeed(Speed);
+            Position.Move(totalVelocity, stepSize);
+        }
     }
 }
