@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Model.Behaviour;
 
 namespace Model
 {
@@ -30,6 +31,13 @@ namespace Model
                 {
                     IsEnemy = enemyCount < i
                 };
+            }
+
+
+            var flockBehaviour = new FlockBehaviour(Boids, 50, 0.005f); // get rid of magic number
+            foreach (var boid in Boids)
+            {
+                boid.AddBehaviour(flockBehaviour);
             }
         }
 
