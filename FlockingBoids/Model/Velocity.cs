@@ -34,5 +34,36 @@ namespace Model
             X = targetX;
             Y = targetY;
         }
+
+        public static Velocity operator +(Velocity vel1, Velocity vel2)
+        {
+            return new Velocity(vel1.X + vel2.X, vel1.Y + vel2.Y);
+        }
+
+        public static Velocity operator -(Velocity vel1, Velocity vel2)
+        {
+            return new Velocity(vel1.X - vel2.X, vel1.Y - vel2.Y);
+        }
+
+        public static Velocity operator *(Velocity vel, float num)
+        {
+            return new Velocity(vel.X * num, vel.Y * num);
+        }
+
+        public static Velocity operator /(Velocity vel, float num)
+        {
+            return new Velocity(vel.X / num, vel.Y / num);
+        }
+
+        public static Velocity operator +(Velocity vel, Position pos)
+        {
+            return new Velocity(vel.X + pos.X, vel.Y + pos.Y);
+        }
+
+        public static Velocity operator -(Velocity vel, Position pos)
+        {
+            return new Velocity(vel.X - pos.X, vel.Y - pos.Y);
+        }
+
     }
 }
