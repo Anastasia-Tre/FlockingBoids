@@ -22,12 +22,7 @@
                     neighborCount += 1;
                 }
 
-            //resultVelocity /= neighborCount;
-            //resultVelocity -= currentBoid.Position;
-            //resultVelocity *= Weight;
-
             resultVelocity = resultVelocity / neighborCount - currentBoid.Position;
-            currentBoid.Velocity += resultVelocity * Weight;
             return resultVelocity * Weight;
         }
     }
