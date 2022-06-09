@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Model.Behaviour
+﻿namespace Model.Behaviour
 {
     internal class AvoidBehaviour : Behaviour
     {
@@ -22,7 +16,6 @@ namespace Model.Behaviour
                 {
                     if (boid.Position.Distance(currentBoid.Position) < Distance)
                     {
-                        // steer away regardless of distance
                         //Vel.X -= (boid.Pos.X - Pos.X) * weight;
                         //Vel.Y -= (boid.Pos.Y - Pos.Y) * weight;
                         //currentBoid.Velocity -= (boid.Position - currentBoid.Position) * Weight;
