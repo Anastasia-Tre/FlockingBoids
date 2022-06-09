@@ -3,16 +3,24 @@ using Renderer;
 
 namespace Controller
 {
-    class Controller
+    public class Controler
     {
-        Field _field;
-        RendererSkiaSharp _renderer;
+        public Field Field { get; private set; }
+        public IRenderer Renderer { get; private set; }
 
-        public Controller()
+        public void CreateField(float width, float height)
         {
-            //_field = new Field();
-            //_renderer = new RendererSkiaSharp();
+            Field = new Field(
+                width: width, // to fix
+                height: height, // to fix
+                boidsCount: 100, // to fix
+                enemyCount: 10 // to fix
+            );
         }
 
+        public void CreateRenderer(IRenderer renderer)
+        {
+            Renderer = renderer;
+        }
     }
 }
