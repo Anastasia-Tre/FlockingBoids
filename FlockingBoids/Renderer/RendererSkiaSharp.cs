@@ -8,7 +8,8 @@ namespace Renderer
         private readonly SKCanvas _canvas;
         private readonly SKPaint _paint;
         private readonly Color _backgroundColor = new(0, 0, 50);
-        private readonly Color _boidColor = new(250, 100, 250);
+        private readonly Color _boidColor = new(250, 250, 227);
+        private readonly Color _enemyColor = new(247, 175, 49);
         private const float BoidRadius = 4f;
 
         public RendererSkiaSharp(SKCanvas canvas)
@@ -25,9 +26,9 @@ namespace Renderer
             Clear(_backgroundColor);
             foreach (var boid in field.Boids)
             {
-                DrawBoid(boid, _boidColor);
+                if (boid.IsEnemy) DrawBoid(boid, _enemyColor);
+                else DrawBoid(boid, _boidColor);
             }
-
         }
 
         public void DrawBoid(Boid boid, Color color)

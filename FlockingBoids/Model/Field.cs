@@ -29,7 +29,7 @@ namespace Model
                     (float)(rnd.NextDouble() - .5),
                     (float)(rnd.NextDouble() - .5))
                 {
-                    IsEnemy = enemyCount < i
+                    IsEnemy = enemyCount > i
                 };
             }
 
