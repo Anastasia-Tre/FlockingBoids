@@ -8,7 +8,7 @@
 
         public override Velocity GetVelocity(Boid currentBoid)
         {
-            // determine mean velocity of the flock
+            // change meanVelocity to resultVelocity
             var neighborCount = 0;
             var meanVelocity = new Velocity(0, 0);
             foreach (var boid in Boids)
