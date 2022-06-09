@@ -9,9 +9,9 @@
         public override Velocity GetVelocity(Boid currentBoid)
         {
             // determine mean velocity of the flock
-            int neighborCount = 0;
-            Velocity meanVelocity = new Velocity(0, 0);
-            foreach (Boid boid in Boids)
+            var neighborCount = 0;
+            var meanVelocity = new Velocity(0, 0);
+            foreach (var boid in Boids)
             {
                 if (boid.Position.Distance(currentBoid.Position) < Distance)
                 {
@@ -24,7 +24,9 @@
             //Vel.X -= (Vel.X - meanVelX) * weight;
             //Vel.Y -= (Vel.Y - meanVelY) * weight;
 
-            return meanVelocity;
+            var resultVelocity = (currentBoid.Velocity - meanVelocity) * -1;
+
+            return resultVelocity * Weight;
         }
     }
 }
