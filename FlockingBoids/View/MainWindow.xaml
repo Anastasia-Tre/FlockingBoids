@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <skia:SKElement x:Name="ResultField" PaintSurface="SKElement_PaintSurface" />
+        <skia:SKElement x:Name="ResultField" 
+                        PaintSurface="SKElement_PaintSurface" 
+                        IgnorePixelScaling="True" />
     </Grid>
 </Window>
