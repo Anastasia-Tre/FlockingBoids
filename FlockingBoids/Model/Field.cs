@@ -34,10 +34,14 @@ namespace Model
             }
 
 
-            var flockBehaviour = new FlockBehaviour(Boids, 50, 0.005f); // get rid of magic number
+            var flockBehaviour = new FlockBehaviour(Boids, 100, 0.005f); // get rid of magic number
+            var alignBehaviour = new AlignBehaviour(Boids, 100, 0.03f);
+            var avoidBehaviour = new AvoidBehaviour(Boids, 20, 0.05f);
             foreach (var boid in Boids)
             {
-                boid.AddBehaviour(flockBehaviour);
+                boid.AddBehaviour(flockBehaviour); // make array
+                boid.AddBehaviour(alignBehaviour);
+                boid.AddBehaviour(avoidBehaviour);
             }
         }
 
