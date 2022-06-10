@@ -1,8 +1,8 @@
 ﻿namespace Model.Behaviour
 {
-    internal class AvoidBehaviour : Behaviour
+    internal class AvoidBoidsBehaviour : Behaviour
     {
-        public AvoidBehaviour(Boid[] boids, float distance, float weight) : base(boids, distance, weight)
+        public AvoidBoidsBehaviour(Boid[] boids, float distance, float weight) : base(boids, distance, weight)
         {
         }
 

@@ -36,9 +36,9 @@ namespace Model
 
             var behaviours = new Behaviour.Behaviour[]
             {
-                new FlockBehaviour(Boids, 100, 0.001f),
+                new FlockBehaviour(Boids, 100, 0.001f), // remove magic numbers
                 new AlignBehaviour(Boids, 100, 0.03f),
-                new AvoidBehaviour(Boids, 20, 0.05f)
+                new AvoidBoidsBehaviour(Boids, 20, 0.05f)
             };
 
             foreach (var boid in Boids)
