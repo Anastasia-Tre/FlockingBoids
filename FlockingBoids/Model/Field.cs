@@ -27,31 +27,41 @@ namespace Model
                     (float)rnd.NextDouble() * _width,
                     (float)rnd.NextDouble() * _height,
                     (float)(rnd.NextDouble() - .5),
-                    (float)(rnd.NextDouble() - .5))
+                    (float)(rnd.NextDouble() - .5),
+                    (float)(1.5 + rnd.NextDouble()))
                 {
                     IsEnemy = enemyCount > i
                 };
             }
 
+            var behaviours = new Behaviour.Behaviour[]
+            {
+                new FlockBehaviour(Boids, 100, 0.0005f),
+                new AlignBehaviour(Boids, 100, 0.3f),
+                new AvoidBehaviour(Boids, 20, 0.05f)
+            };
 
-            var flockBehaviour = new FlockBehaviour(Boids, 100, 0.005f); // get rid of magic number
-            var alignBehaviour = new AlignBehaviour(Boids, 100, 0.03f);
-            var avoidBehaviour = new AvoidBehaviour(Boids, 20, 0.05f);
             foreach (var boid in Boids)
             {
-                boid.AddBehaviour(flockBehaviour); // make array
-                boid.AddBehaviour(alignBehaviour);
-                boid.AddBehaviour(avoidBehaviour);
+                foreach (var behaviour in behaviours)
+                {
+                    boid.AddBehaviour(behaviour);
+                }
             }
         }
 
-        public void Advance(float stepSize = 1)
+        public void Advance(float stepSize = 2)
         {
-            Parallel.ForEach(Boids, boid =>
+            /*Parallel.ForEach(Boids, boid =>
                 {
                     boid.Move(stepSize);
                 }
-            );
+            );*/
+
+            foreach (var boid in Boids)
+            {
+                boid.Move(stepSize);
+            }
 
         }
     }
