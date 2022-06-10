@@ -28,7 +28,7 @@ namespace Model
                     (float)rnd.NextDouble() * _height,
                     (float)(rnd.NextDouble() - .5),
                     (float)(rnd.NextDouble() - .5),
-                    (float)(1.5 + rnd.NextDouble()))
+                    (float)(.5 + rnd.NextDouble()))
                 {
                     IsEnemy = enemyCount > i
                 };
@@ -36,8 +36,8 @@ namespace Model
 
             var behaviours = new Behaviour.Behaviour[]
             {
-                new FlockBehaviour(Boids, 100, 0.0005f),
-                new AlignBehaviour(Boids, 100, 0.3f),
+                new FlockBehaviour(Boids, 100, 0.001f),
+                new AlignBehaviour(Boids, 100, 0.03f),
                 new AvoidBehaviour(Boids, 20, 0.05f)
             };
 
@@ -50,19 +50,13 @@ namespace Model
             }
         }
 
-        public void Advance(float stepSize = 2)
+        public void Advance(float stepSize = 1)
         {
-            /*Parallel.ForEach(Boids, boid =>
+            Parallel.ForEach(Boids, boid =>
                 {
                     boid.Move(stepSize);
                 }
-            );*/
-
-            foreach (var boid in Boids)
-            {
-                boid.Move(stepSize);
-            }
-
+            );
         }
     }
 }
