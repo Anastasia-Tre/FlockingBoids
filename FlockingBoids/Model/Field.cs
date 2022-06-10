@@ -53,16 +53,16 @@ namespace Model
 
         public void Advance(float stepSize = 1)
         {
-            /*Parallel.ForEach(Boids, boid =>
+            Parallel.ForEach(Boids, boid =>
                 {
                     boid.Move(stepSize);
                 }
-            );*/
+            );
 
-            foreach (var boid in Boids)
+            /*foreach (var boid in Boids)
             {
                 boid.Move(stepSize);
-            }
+            }*/
         }
     }
 }
