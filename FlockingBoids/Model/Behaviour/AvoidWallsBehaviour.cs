@@ -4,7 +4,11 @@ namespace Model.Behaviour
 {
     internal class AvoidWallsBehaviour : Behaviour
     {
-        public AvoidWallsBehaviour(Boid[] boids, float distance, float weight) : base(boids, distance, weight)
+        private const float Pad = 100;
+        private const float Turn = 0.1f;
+
+        public AvoidWallsBehaviour(Boid[] boids, float width, float height, float weight) 
+            : base(boids, Pad, weight)
         {
         }
 
