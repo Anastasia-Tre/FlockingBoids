@@ -8,8 +8,7 @@
         private readonly float _width;
         private readonly float _height;
 
-        public AvoidWallsBehaviour(Boid[] boids, float width, float height, float weight) 
-            : base(boids, Pad, weight)
+        public AvoidWallsBehaviour(Boid[] boids, float width, float height, float weight) : base(boids, Pad, weight)
         {
             _width = width;
             _height = height;
