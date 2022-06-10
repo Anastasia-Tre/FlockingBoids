@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Model.Behaviour
+﻿namespace Model.Behaviour
 {
     internal class AvoidWallsBehaviour : Behaviour
     {
@@ -26,7 +24,7 @@ namespace Model.Behaviour
             if (currentBoid.Position.X > _width - Pad) resultVelocity.X -= Turn;
             if (currentBoid.Position.Y > _height - Pad) resultVelocity.Y -= Turn;
 
-            return resultVelocity;
+            return resultVelocity * Weight;
         }
     }
 }

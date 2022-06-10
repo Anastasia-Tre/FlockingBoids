@@ -37,8 +37,9 @@ namespace Model
             var behaviours = new Behaviour.Behaviour[]
             {
                 new FlockBehaviour(Boids, 100, 0.001f), // remove magic numbers
-                new AlignBehaviour(Boids, 100, 0.03f),
-                new AvoidBoidsBehaviour(Boids, 20, 0.05f)
+                new AlignBehaviour(Boids, 100, 0.06f),
+                new AvoidBoidsBehaviour(Boids, 20, 0.05f),
+                new AvoidWallsBehaviour(Boids, _width, _height, 1)
             };
 
             foreach (var boid in Boids)
@@ -52,11 +53,16 @@ namespace Model
 
         public void Advance(float stepSize = 1)
         {
-            Parallel.ForEach(Boids, boid =>
+            /*Parallel.ForEach(Boids, boid =>
                 {
                     boid.Move(stepSize);
                 }
-            );
+            );*/
+
+            foreach (var boid in Boids)
+            {
+                boid.Move(stepSize);
+            }
         }
     }
 }
