@@ -16,7 +16,7 @@
 
         public override void CalcVelocity(Boid curBoid)
         {
-            var resultVelocity = new Velocity(0, 0);
+            var resultVelocity = new Velocity();
 
             if (curBoid.Position.X < Pad) resultVelocity.X += Turn;
             if (curBoid.Position.Y < Pad) resultVelocity.Y += Turn;
