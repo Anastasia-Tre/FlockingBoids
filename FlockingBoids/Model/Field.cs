@@ -45,13 +45,12 @@ namespace Model
                     (float)rnd.NextDouble() * _height,
                     (float)(rnd.NextDouble() - .5),
                     (float)(rnd.NextDouble() - .5),
-                    (float)(1.5 + rnd.NextDouble()))
+                    (float)(1 + rnd.NextDouble()));
+                if (i < enemyCount)
                 {
-                    IsEnemy = enemyCount > i
-                };
-                Boids[i].Speed = enemyCount > i
-                    ? Boids[i].Speed - 0.5f
-                    : Boids[i].Speed;
+                    Boids[i].IsEnemy = true;
+                    Boids[i].Speed += .5f;
+                }
                 behaviours.ForEach(
                     behaviour => Boids[i].AddBehaviour(behaviour));
             }
