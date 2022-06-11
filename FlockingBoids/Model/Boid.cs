@@ -26,16 +26,10 @@ namespace Model
         public void Move(float stepSize)
         {
             Velocity.SetSpeed(Speed);
-            /*Velocity totalVelocity = Velocity;
-            totalVelocity = _behaviours.Aggregate(totalVelocity,
-                (current, behaviour) => current + behaviour.GetVelocity(this));
-            */
-
             foreach (var behaviour in _behaviours)
             {
-                Velocity += behaviour.GetVelocity(this);
+                behaviour.CalcVelocity(this);
             }
-
             Position.Move(Velocity, stepSize);
         }
     }

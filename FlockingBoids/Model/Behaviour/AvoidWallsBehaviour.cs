@@ -14,7 +14,7 @@
             _height = height;
         }
 
-        public override Velocity GetVelocity(Boid currentBoid)
+        public override Velocity CalcVelocity(Boid currentBoid)
         {
             var resultVelocity = new Velocity(0, 0);
 

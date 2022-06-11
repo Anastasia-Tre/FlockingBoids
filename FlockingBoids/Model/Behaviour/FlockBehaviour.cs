@@ -7,7 +7,7 @@
         {
         }
 
-        public override Velocity GetVelocity(Boid currentBoid)
+        public override void CalcVelocity(Boid currentBoid)
         {
             if (currentBoid.IsEnemy)
                 Distance *= 2;
@@ -23,7 +23,7 @@
                 }
 
             resultVelocity = resultVelocity / neighborCount - currentBoid.Position;
-            return resultVelocity * Weight;
+            currentBoid.Velocity += resultVelocity * Weight;
         }
     }
 }

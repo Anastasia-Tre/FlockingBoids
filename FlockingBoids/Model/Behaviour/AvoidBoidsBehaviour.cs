@@ -6,7 +6,7 @@
         {
         }
 
-        public override Velocity GetVelocity(Boid currentBoid)
+        public override Velocity CalcVelocity(Boid currentBoid)
         {
             var resultVelocity = new Velocity(0, 0);
             for (int i = 0; i < Boids.Length; i++) // rewrite to foreach

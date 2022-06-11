@@ -6,7 +6,7 @@
         {
         }
 
-        public override Velocity GetVelocity(Boid currentBoid)
+        public override Velocity CalcVelocity(Boid currentBoid)
         {
             // change meanVelocity to resultVelocity
             var neighborCount = 0;
