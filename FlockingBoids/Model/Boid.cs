@@ -23,11 +23,18 @@ namespace Model
             _behaviours.Add(behaviour);
         }
 
+        private const int PositionsToRemember = 20;
+        public List<Position> Positions = new();
+
         public void Move(float stepSize)
         {
             _behaviours.ForEach(behaviour => behaviour.CalcVelocity(this));
             Velocity.SetSpeed(Speed);
             Position.Move(Velocity, stepSize);
+
+            Positions.Add(Position);
+            while (Positions.Count > PositionsToRemember)
+                Positions.RemoveAt(0);
         }
     }
 }
