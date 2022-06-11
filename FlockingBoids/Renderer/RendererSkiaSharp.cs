@@ -26,14 +26,26 @@ namespace Renderer
             Clear(_backgroundColor);
             foreach (var boid in field.Boids)
             {
-                if (boid.IsEnemy) DrawBoid(boid, _enemyColor);
-                else DrawBoid(boid, _boidColor);
+                if (boid.IsEnemy) DrawTailBoid(boid, _enemyColor);
+                else DrawTailBoid(boid, _boidColor);
             }
         }
 
         public void DrawBoid(Boid boid, Color color)
         {
             FillCircle(new Point(boid.Position.X, boid.Position.Y), BoidRadius, color);
+        }
+
+        public void DrawTailBoid(Boid boid, Color color)
+        {
+            for (var i = 0; i < boid.Positions.Count; i++)
+            {
+                var frac = (i + 1d) / (boid.Positions.Count);
+                var alpha = (byte)(255 * frac * .5);
+                color = new Color(color.R, color.G, color.B, alpha);
+                var pos = boid.Positions[i];
+                FillCircle(new Point(boid.Position.X, boid.Position.Y), 2, color);
+            }
         }
 
         public void Clear(Color color)
