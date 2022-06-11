@@ -13,8 +13,8 @@ namespace Controller
             Field = new Field(
                 width: width, // to fix
                 height: height, // to fix
-                boidsCount: 100, // to fix
-                enemyCount: 5 // to fix
+                boidsCount: 2, // to fix
+                enemyCount: 1 // to fix
             );
         }
 

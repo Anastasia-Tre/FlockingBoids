@@ -11,6 +11,11 @@ namespace Model
             (X, Y) = (x, y);
         }
 
+        public Position(Position position)
+        {
+            (X, Y) = (position.X, position.Y);
+        }
+
         public void Move(Velocity velocity, float step)
         {
             X += velocity.X * step;
