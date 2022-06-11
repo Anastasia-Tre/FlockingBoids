@@ -9,9 +9,7 @@
 
         public override void CalcVelocity(Boid currentBoid)
         {
-            if (currentBoid.IsEnemy)
-                Distance *= 2;
-
+            Distance = currentBoid.IsEnemy ? 2 * Distance : Distance;
             var neighborCount = 0;
             var resultVelocity = new Velocity(0, 0);
 
