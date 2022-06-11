@@ -6,7 +6,7 @@
         {
         }
 
-        public override Velocity CalcVelocity(Boid currentBoid)
+        public override void CalcVelocity(Boid currentBoid)
         {
             // change meanVelocity to resultVelocity
             var neighborCount = 0;
@@ -24,9 +24,8 @@
             //Vel.X -= (Vel.X - meanVelX) * weight;
             //Vel.Y -= (Vel.Y - meanVelY) * weight;
 
-            var resultVelocity = (currentBoid.Velocity - meanVelocity) * -1;
-
-            return resultVelocity * Weight;
+            var resultVelocity = currentBoid.Velocity - meanVelocity;
+            currentBoid.Velocity -= resultVelocity * Weight;
         }
     }
 }

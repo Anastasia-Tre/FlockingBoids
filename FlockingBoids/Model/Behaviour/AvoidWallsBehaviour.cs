@@ -14,7 +14,7 @@
             _height = height;
         }
 
-        public override Velocity CalcVelocity(Boid currentBoid)
+        public override void CalcVelocity(Boid currentBoid)
         {
             var resultVelocity = new Velocity(0, 0);
 
@@ -23,7 +23,7 @@
             if (currentBoid.Position.X > _width - Pad) resultVelocity.X -= Turn;
             if (currentBoid.Position.Y > _height - Pad) resultVelocity.Y -= Turn;
 
-            return resultVelocity * Weight;
+            currentBoid.Velocity += resultVelocity * Weight;
         }
     }
 }

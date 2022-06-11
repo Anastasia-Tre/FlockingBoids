@@ -6,7 +6,7 @@
         {
         }
 
-        public override Velocity CalcVelocity(Boid currentBoid)
+        public override void CalcVelocity(Boid currentBoid)
         {
             var resultVelocity = new Velocity(0, 0);
             for (int i = 0; i < Boids.Length; i++) // rewrite to foreach
@@ -39,8 +39,7 @@
                 }
 
             }
-
-            return resultVelocity * Weight * -1;
+            currentBoid.Velocity -= resultVelocity * Weight;
         }
     }
 }
