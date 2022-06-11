@@ -19,7 +19,9 @@ namespace Model
         {
             (_width, _height) = (width, height);
 
-            if (enemyCount > boidsCount) throw new Exception("Number of enemies is bigger than number of boids");
+            if (enemyCount > boidsCount)
+                throw new Exception(
+                    "Number of enemies is bigger than number of boids");
             Boids = new Boid[boidsCount];
             GenerateRandomBoids(enemyCount);
         }
@@ -47,8 +49,11 @@ namespace Model
                 {
                     IsEnemy = enemyCount > i
                 };
-                Boids[i].Speed = enemyCount > i ? Boids[i].Speed - 0.5f : Boids[i].Speed;
-                behaviours.ForEach(behaviour => Boids[i].AddBehaviour(behaviour));
+                Boids[i].Speed = enemyCount > i
+                    ? Boids[i].Speed - 0.5f
+                    : Boids[i].Speed;
+                behaviours.ForEach(
+                    behaviour => Boids[i].AddBehaviour(behaviour));
             }
         }
 

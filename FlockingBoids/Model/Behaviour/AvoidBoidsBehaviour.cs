@@ -2,20 +2,20 @@
 {
     internal class AvoidBoidsBehaviour : Behaviour
     {
-        public AvoidBoidsBehaviour(Boid[] boids, float distance, float weight) : base(boids, distance, weight)
+        public AvoidBoidsBehaviour(Boid[] boids, float distance, float weight)
+            : base(boids, distance, weight)
         {
         }
 
-        public override void CalcVelocity(Boid currentBoid)
+        public override void CalcVelocity(Boid curBoid)
         {
             foreach (var boid in Boids)
             {
-                var closeness = Distance - boid.Position.Distance(currentBoid.Position);
+                var closeness =
+                    Distance - boid.Position.Distance(curBoid.Position);
                 if (closeness > 0)
-                {
-                    currentBoid.Velocity -= (boid.Position - currentBoid.Position) * Weight * closeness;
-                }
-
+                    curBoid.Velocity -= (boid.Position - curBoid.Position) *
+                                        Weight * closeness;
             }
         }
     }

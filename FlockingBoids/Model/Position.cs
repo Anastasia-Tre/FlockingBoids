@@ -53,6 +53,5 @@ namespace Model
         {
             return new Position(pos.X / num, pos.Y / num);
         }
-
     }
 }

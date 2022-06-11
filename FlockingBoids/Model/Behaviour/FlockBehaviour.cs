@@ -7,21 +7,21 @@
         {
         }
 
-        public override void CalcVelocity(Boid currentBoid)
+        public override void CalcVelocity(Boid curBoid)
         {
-            Distance = currentBoid.IsEnemy ? 2 * Distance : Distance;
+            Distance = curBoid.IsEnemy ? 2 * Distance : Distance;
             var neighborCount = 0;
             var resultVelocity = new Velocity(0, 0);
 
             foreach (var boid in Boids)
-                if (boid.Position.Distance(currentBoid.Position) < Distance)
+                if (boid.Position.Distance(curBoid.Position) < Distance)
                 {
                     resultVelocity += boid.Position;
                     neighborCount += 1;
                 }
 
-            resultVelocity = resultVelocity / neighborCount - currentBoid.Position;
-            currentBoid.Velocity += resultVelocity * Weight;
+            resultVelocity = resultVelocity / neighborCount - curBoid.Position;
+            curBoid.Velocity += resultVelocity * Weight;
         }
     }
 }
