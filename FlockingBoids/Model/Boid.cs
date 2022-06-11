@@ -10,7 +10,7 @@ namespace Model
         public float Speed;
         public Velocity Velocity;
 
-        public Boid(float x, float y, float xVel, float yVel, float speed = 1f)
+        public Boid(float x, float y, float xVel, float yVel, float speed)
         {
             Position = new Position(x, y);
             Velocity = new Velocity(xVel, yVel);

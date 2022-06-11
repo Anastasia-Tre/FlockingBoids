@@ -32,6 +32,10 @@ namespace Model
                 {
                     IsEnemy = enemyCount > i
                 };
+                if (enemyCount > i)
+                {
+                    Boids[i].Speed -= 0.5f;
+                }
             }
 
             var behaviours = new Behaviour.Behaviour[]

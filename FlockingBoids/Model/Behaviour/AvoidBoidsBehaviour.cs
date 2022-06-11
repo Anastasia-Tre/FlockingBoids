@@ -23,7 +23,7 @@
                         resultVelocity = (boid.Position - currentBoid.Position);
                     }
                 }*/
-                float closeness = 1;
+                /*float closeness = 1;
                 if (boid.IsEnemy != currentBoid.IsEnemy)
                 {
                     closeness *= 2;
@@ -36,7 +36,17 @@
                     //Vel.X -= (boid.Pos.X - Pos.X) * weight * closeness;
                     //Vel.Y -= (boid.Pos.Y - Pos.Y) * weight * closeness;
                     resultVelocity = (boid.Position - currentBoid.Position);
+                }*/
+
+                if (boid.Position.Distance(currentBoid.Position) < Distance)
+                {
+                    if (boid.IsEnemy)
+                    {
+                        currentBoid.Velocity -= (boid.Position - currentBoid.Position) * 2 * Weight;
+                    }
+                    currentBoid.Velocity -= (boid.Position - currentBoid.Position) * Weight;
                 }
+
 
             }
             currentBoid.Velocity -= resultVelocity * Weight;

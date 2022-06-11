@@ -44,5 +44,15 @@ namespace Model
             return new Position(pos1.X - pos2.X, pos1.Y - pos2.Y);
         }
 
+        public static Position operator *(Position pos, float num)
+        {
+            return new Position(pos.X * num, pos.Y * num);
+        }
+
+        public static Position operator /(Position pos, float num)
+        {
+            return new Position(pos.X / num, pos.Y / num);
+        }
+
     }
 }
