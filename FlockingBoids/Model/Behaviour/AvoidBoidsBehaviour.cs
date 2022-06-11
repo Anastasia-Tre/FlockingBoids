@@ -10,14 +10,12 @@
         {
             foreach (var boid in Boids)
             {
-                if (boid.IsEnemy == currentBoid.IsEnemy) 
+                var closeness = Distance - boid.Position.Distance(currentBoid.Position);
+                if (closeness > 0)
                 {
-                    float closeness = Distance - boid.Position.Distance(currentBoid.Position);
-                    if (closeness > 0)
-                    {
-                        currentBoid.Velocity -= (boid.Position - currentBoid.Position) * Weight * closeness;
-                    }
+                    currentBoid.Velocity -= (boid.Position - currentBoid.Position) * Weight * closeness;
                 }
+
             }
         }
     }
