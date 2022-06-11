@@ -12,10 +12,7 @@
             {
                 if (boid.IsEnemy && boid.Position.Distance(currentBoid.Position) < Distance)
                 {
-                    if (boid.Position.Distance(currentBoid.Position) < Distance)
-                    {
-                        currentBoid.Velocity -= (boid.Position - currentBoid.Position) * Weight;
-                    }
+                    currentBoid.Velocity -= (boid.Position - currentBoid.Position) * Weight;
                 }
             }
         }
