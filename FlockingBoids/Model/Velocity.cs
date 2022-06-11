@@ -6,7 +6,7 @@ namespace Model
     {
         public float X, Y;
 
-        public Velocity(float x, float y)
+        public Velocity(float x = 0, float y = 0)
         {
             (X, Y) = (x, y);
         }

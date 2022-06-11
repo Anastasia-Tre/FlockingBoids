@@ -10,7 +10,7 @@
         public override void CalcVelocity(Boid curBoid)
         {
             var neighborCount = 0;
-            var resultVelocity = new Velocity(0, 0);
+            var resultVelocity = new Velocity();
             foreach (var boid in Boids)
                 if (boid.Position.Distance(curBoid.Position) < Distance)
                 {
