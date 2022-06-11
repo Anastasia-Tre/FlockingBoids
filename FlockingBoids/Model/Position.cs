@@ -33,5 +33,25 @@ namespace Model
             var (dX, dY) = Delta(otherPosition);
             return (float)Math.Sqrt(dX * dX + dY * dY);
         }
+
+        public static Position operator +(Position pos1, Position pos2)
+        {
+            return new Position(pos1.X + pos2.X, pos1.Y + pos2.Y);
+        }
+
+        public static Position operator -(Position pos1, Position pos2)
+        {
+            return new Position(pos1.X - pos2.X, pos1.Y - pos2.Y);
+        }
+
+        public static Position operator *(Position pos, float num)
+        {
+            return new Position(pos.X * num, pos.Y * num);
+        }
+
+        public static Position operator /(Position pos, float num)
+        {
+            return new Position(pos.X / num, pos.Y / num);
+        }
     }
 }

@@ -65,5 +65,9 @@ namespace Model
             return new Velocity(vel.X - pos.X, vel.Y - pos.Y);
         }
 
+        public static implicit operator Velocity(Position pos)
+        {
+            return new Velocity(pos.X, pos.Y);
+        }
     }
 }

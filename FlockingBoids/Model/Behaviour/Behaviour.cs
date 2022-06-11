@@ -13,6 +13,6 @@
             Weight = weight;
         }
 
-        public abstract Velocity GetVelocity(Boid currentBoid);
+        public abstract void CalcVelocity(Boid curBoid);
     }
 }
