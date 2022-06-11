@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Threading;
-using Renderer;
 using Controller;
+using Renderer;
+using SkiaSharp.Views.Desktop;
 
 namespace View
 {
@@ -35,7 +36,8 @@ namespace View
             _controller.CreateField((float)Width, (float)Height);
         }
 
-        private void SKElement_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
+        private void SKElement_PaintSurface(object sender,
+            SKPaintSurfaceEventArgs e)
         {
             _controller.CreateRenderer(new RendererSkiaSharp(e.Surface.Canvas));
             _controller.Renderer.Render(_controller.Field);
