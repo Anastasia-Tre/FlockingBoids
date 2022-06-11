@@ -14,7 +14,16 @@ namespace Model.Behaviour
 
         public override void CalcVelocity(Boid currentBoid)
         {
-            throw new NotImplementedException();
+            foreach (var boid in Boids)
+            {
+                if (boid.IsEnemy && boid.Position.Distance(currentBoid.Position) < Distance)
+                {
+                    if (boid.Position.Distance(currentBoid.Position) < Distance)
+                    {
+                        currentBoid.Velocity -= (boid.Position - currentBoid.Position) * Weight;
+                    }
+                }
+            }
         }
     }
 }
