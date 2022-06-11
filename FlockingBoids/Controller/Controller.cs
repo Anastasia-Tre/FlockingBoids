@@ -13,8 +13,8 @@ namespace Controller
             Field = new Field(
                 width, // to fix
                 height, // to fix
-                2, // to fix
-                1 // to fix
+                100, // to fix
+                5 // to fix
             );
         }
 
