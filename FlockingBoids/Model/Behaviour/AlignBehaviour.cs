@@ -8,24 +8,18 @@
 
         public override void CalcVelocity(Boid currentBoid)
         {
-            // change meanVelocity to resultVelocity
             var neighborCount = 0;
-            var meanVelocity = new Velocity(0, 0);
+            var resultVelocity = new Velocity(0, 0);
             foreach (var boid in Boids)
             {
                 if (boid.Position.Distance(currentBoid.Position) < Distance)
                 {
-                    meanVelocity += boid.Velocity;
+                    resultVelocity += boid.Velocity;
                     neighborCount += 1;
                 }
             }
-            meanVelocity /= neighborCount;
-
-            //Vel.X -= (Vel.X - meanVelX) * weight;
-            //Vel.Y -= (Vel.Y - meanVelY) * weight;
-
-            var resultVelocity = currentBoid.Velocity - meanVelocity;
-            currentBoid.Velocity -= resultVelocity * Weight;
+            resultVelocity /= neighborCount;
+            currentBoid.Velocity -= (currentBoid.Velocity - resultVelocity) * Weight;
         }
     }
 }
