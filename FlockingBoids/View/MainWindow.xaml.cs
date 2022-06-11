@@ -11,13 +11,13 @@ namespace View
     /// </summary>
     public partial class MainWindow
     {
-        private readonly Controler _controller;
+        private readonly Controller.Controller _controller;
         private readonly DispatcherTimer _timer = new();
 
         public MainWindow()
         {
             InitializeComponent();
-            _controller = new Controler();
+            _controller = new Controller.Controller();
             Reset();
 
             _timer.Interval = TimeSpan.FromMilliseconds(10);

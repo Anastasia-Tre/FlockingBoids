@@ -3,7 +3,7 @@ using Renderer;
 
 namespace Controller
 {
-    public class Controler
+    public class Controller
     {
         public Field Field { get; private set; }
         public IRenderer Renderer { get; private set; }
