@@ -22,12 +22,6 @@ namespace Model
             Y += velocity.Y * step;
         }
 
-        public void Shift(Position position)
-        {
-            X += position.X;
-            Y += position.Y;
-        }
-
         public (float x, float y) Delta(Position otherPosition)
         {
             return (otherPosition.X - X, otherPosition.Y - Y);
@@ -39,11 +33,6 @@ namespace Model
             return (float)Math.Sqrt(dX * dX + dY * dY);
         }
 
-        public static Position operator +(Position pos1, Position pos2)
-        {
-            return new Position(pos1.X + pos2.X, pos1.Y + pos2.Y);
-        }
-
         public static Position operator -(Position pos1, Position pos2)
         {
             return new Position(pos1.X - pos2.X, pos1.Y - pos2.Y);
@@ -52,11 +41,6 @@ namespace Model
         public static Position operator *(Position pos, float num)
         {
             return new Position(pos.X * num, pos.Y * num);
-        }
-
-        public static Position operator /(Position pos, float num)
-        {
-            return new Position(pos.X / num, pos.Y / num);
         }
     }
 }
