@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Threading;
-using Controller;
 using Renderer;
 using SkiaSharp.Views.Desktop;
 
