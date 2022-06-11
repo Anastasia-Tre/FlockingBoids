@@ -11,10 +11,10 @@ namespace Controller
         public void CreateField(float width, float height)
         {
             Field = new Field(
-                width: width, // to fix
-                height: height, // to fix
-                boidsCount: 2, // to fix
-                enemyCount: 1 // to fix
+                width, // to fix
+                height, // to fix
+                2, // to fix
+                1 // to fix
             );
         }
 

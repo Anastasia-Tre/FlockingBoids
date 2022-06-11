@@ -51,6 +51,7 @@ namespace Model
                     Boids[i].IsEnemy = true;
                     Boids[i].Speed += .5f;
                 }
+
                 behaviours.ForEach(
                     behaviour => Boids[i].AddBehaviour(behaviour));
             }
