@@ -14,7 +14,7 @@ namespace Controller
                 width: width, // to fix
                 height: height, // to fix
                 boidsCount: 100, // to fix
-                enemyCount: 10 // to fix
+                enemyCount: 5 // to fix
             );
         }
 
