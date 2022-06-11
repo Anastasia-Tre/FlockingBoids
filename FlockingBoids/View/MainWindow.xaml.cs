@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Threading;
 using Renderer;
-using Controller;
+using SkiaSharp.Views.Desktop;
 
 namespace View
 {
@@ -10,13 +10,13 @@ namespace View
     /// </summary>
     public partial class MainWindow
     {
-        private readonly Controler _controller;
+        private readonly Controller.Controller _controller;
         private readonly DispatcherTimer _timer = new();
 
         public MainWindow()
         {
             InitializeComponent();
-            _controller = new Controler();
+            _controller = new Controller.Controller();
             Reset();
 
             _timer.Interval = TimeSpan.FromMilliseconds(10);
@@ -35,7 +35,8 @@ namespace View
             _controller.CreateField((float)Width, (float)Height);
         }
 
-        private void SKElement_PaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
+        private void SKElement_PaintSurface(object sender,
+            SKPaintSurfaceEventArgs e)
         {
             _controller.CreateRenderer(new RendererSkiaSharp(e.Surface.Canvas));
             _controller.Renderer.Render(_controller.Field);

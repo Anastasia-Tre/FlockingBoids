@@ -3,7 +3,7 @@ using Renderer;
 
 namespace Controller
 {
-    public class Controler
+    public class Controller
     {
         public Field Field { get; private set; }
         public IRenderer Renderer { get; private set; }
@@ -11,10 +11,10 @@ namespace Controller
         public void CreateField(float width, float height)
         {
             Field = new Field(
-                width: width, // to fix
-                height: height, // to fix
-                boidsCount: 100, // to fix
-                enemyCount: 5 // to fix
+                width, // to fix
+                height, // to fix
+                100, // to fix
+                5 // to fix
             );
         }
 

@@ -4,9 +4,11 @@ namespace Model
 {
     public class Boid
     {
+        private const int PositionsToRemember = 20;
         private readonly List<Behaviour.Behaviour> _behaviours;
         public bool IsEnemy = false;
         public Position Position;
+        public List<Position> Positions = new();
         public float Speed;
         public Velocity Velocity;
 
@@ -28,6 +30,10 @@ namespace Model
             _behaviours.ForEach(behaviour => behaviour.CalcVelocity(this));
             Velocity.SetSpeed(Speed);
             Position.Move(Velocity, stepSize);
+
+            Positions.Add(new Position(Position));
+            while (Positions.Count > PositionsToRemember)
+                Positions.RemoveAt(0);
         }
     }
 }

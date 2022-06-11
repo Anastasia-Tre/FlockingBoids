@@ -12,7 +12,8 @@
             foreach (var boid in Boids)
                 if (boid.IsEnemy &&
                     boid.Position.Distance(curBoid.Position) < Distance)
-                    curBoid.Velocity -= (boid.Position - curBoid.Position) * Weight;
+                    curBoid.Velocity -=
+                        (boid.Position - curBoid.Position) * Weight;
         }
     }
 }
