@@ -25,11 +25,8 @@ namespace Model
 
         public void Move(float stepSize)
         {
+            _behaviours.ForEach(behaviour => behaviour.CalcVelocity(this));
             Velocity.SetSpeed(Speed);
-            foreach (var behaviour in _behaviours)
-            {
-                behaviour.CalcVelocity(this);
-            }
             Position.Move(Velocity, stepSize);
         }
     }

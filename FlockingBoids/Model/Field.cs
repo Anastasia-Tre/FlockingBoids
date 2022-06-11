@@ -28,7 +28,7 @@ namespace Model
                     (float)rnd.NextDouble() * _height,
                     (float)(rnd.NextDouble() - .5),
                     (float)(rnd.NextDouble() - .5),
-                    (float)(.5 + rnd.NextDouble()))
+                    (float)(1.5 + rnd.NextDouble()))
                 {
                     IsEnemy = enemyCount > i
                 };
