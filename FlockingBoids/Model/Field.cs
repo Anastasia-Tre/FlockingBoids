@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Model.Behaviour;
+using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Model.Behaviour;
 
 namespace Model
 {
@@ -8,6 +9,12 @@ namespace Model
     {
         private readonly float _width, _height;
         public readonly Boid[] Boids;
+
+        public float WeightFlock = 1.0f;
+        public float WeightAvoid = 1.0f;
+        public float WeightAlign = 1.0f;
+        public float Vision = 100;
+        public float VisionRepel = 20; // rename
 
         public Field(float width, float height, int boidsCount, int enemyCount)
         {
@@ -20,6 +27,15 @@ namespace Model
 
         private void GenerateRandomBoids(int enemyCount)
         {
+            var behaviours = new List<Behaviour.Behaviour>
+            {
+                new FlockBehaviour(Boids, Vision, 0.0005f * WeightFlock),
+                new AlignBehaviour(Boids, Vision, 0.05f * WeightAlign),
+                new AvoidBoidsBehaviour(Boids, VisionRepel, 0.005f * WeightAvoid),
+                new AvoidEnemiesBehaviour(Boids, Vision, 0.005f * WeightAvoid),
+                new AvoidWallsBehaviour(Boids, _width, _height, 1),
+            };
+
             var rnd = new Random();
             for (var i = 0; i < Boids.GetLength(0); i++)
             {
@@ -32,42 +48,17 @@ namespace Model
                 {
                     IsEnemy = enemyCount > i
                 };
-                if (enemyCount > i) // rewrite
-                {
-                    Boids[i].Speed -= 0.5f;
-                }
-            }
-
-            var behaviours = new Behaviour.Behaviour[]
-            {
-                new FlockBehaviour(Boids, 100, 0.0005f), // remove magic numbers
-                new AlignBehaviour(Boids, 100, 0.05f),
-                new AvoidBoidsBehaviour(Boids, 20, 0.005f),
-                new AvoidEnemiesBehaviour(Boids, 100, 0.005f),
-                new AvoidWallsBehaviour(Boids, _width, _height, 1),
-            };
-
-            foreach (var boid in Boids)
-            {
-                foreach (var behaviour in behaviours)
-                {
-                    boid.AddBehaviour(behaviour);
-                }
+                Boids[i].Speed = enemyCount > i ? Boids[i].Speed - 0.5f : Boids[i].Speed;
+                behaviours.ForEach(behaviour => Boids[i].AddBehaviour(behaviour));
             }
         }
 
         public void Advance(float stepSize = 1)
         {
-            Parallel.ForEach(Boids, boid =>
-                {
-                    boid.Move(stepSize);
-                }
-            );
-
-            /*foreach (var boid in Boids)
-            {
+            Parallel.ForEach(Boids, boid => {
                 boid.Move(stepSize);
-            }*/
+            }
+            );
         }
     }
 }
