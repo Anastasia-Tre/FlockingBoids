@@ -38,18 +38,41 @@
                     resultVelocity = (boid.Position - currentBoid.Position);
                 }*/
 
-                if (boid.Position.Distance(currentBoid.Position) < Distance)
+                /*if (boid.Position.Distance(currentBoid.Position) < Distance)
                 {
                     if (boid.IsEnemy)
                     {
                         currentBoid.Velocity -= (boid.Position - currentBoid.Position) * 2 * Weight;
                     }
                     currentBoid.Velocity -= (boid.Position - currentBoid.Position) * Weight;
-                }
+                }*/
+
+
 
 
             }
-            currentBoid.Velocity -= resultVelocity * Weight;
+
+            foreach (var boid in Boids)
+            {
+                if (boid.IsEnemy && boid.Position.Distance(currentBoid.Position) < Distance)
+                {
+                    if (boid.Position.Distance(currentBoid.Position) < Distance)
+                    {
+                        currentBoid.Velocity -= (boid.Position - currentBoid.Position) * Weight;
+                    }
+                }
+                if (boid.IsEnemy == currentBoid.IsEnemy) 
+                {
+                    float closeness = Distance - boid.Position.Distance(currentBoid.Position);
+                    if (closeness > 0)
+                    {
+                        currentBoid.Velocity -= (boid.Position - currentBoid.Position) * Weight * closeness;
+                    }
+                }
+            }
+
+
+            //currentBoid.Velocity -= resultVelocity * Weight;
         }
     }
 }

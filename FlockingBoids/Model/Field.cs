@@ -32,7 +32,7 @@ namespace Model
                 {
                     IsEnemy = enemyCount > i
                 };
-                if (enemyCount > i)
+                if (enemyCount > i) // rewrite
                 {
                     Boids[i].Speed -= 0.5f;
                 }
