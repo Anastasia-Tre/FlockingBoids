@@ -17,7 +17,7 @@ namespace View
         {
             InitializeComponent();
             _controller = new Controller.Controller();
-            Reset();
+            _controller.CreateField();
 
             _timer.Interval = TimeSpan.FromMilliseconds(10);
             _timer.Tick += TimerTick;
@@ -29,12 +29,6 @@ namespace View
             _controller.Field.SetFieldSize((float)ActualWidth, (float)ActualHeight);
             _controller.Field.Advance();
             ResultField.InvalidateVisual();
-            var width = ActualWidth;
-        }
-
-        private void Reset()
-        {
-            _controller.CreateField();
         }
 
         private void SKElement_PaintSurface(object sender,
