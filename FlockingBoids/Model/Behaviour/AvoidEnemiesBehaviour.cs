@@ -2,7 +2,7 @@
 {
     internal class AvoidEnemiesBehaviour : Behaviour
     {
-        public const float Weight = 0.005f;
+        private const float Weight = 0.005f;
 
         public AvoidEnemiesBehaviour(Boid[] boids)
             : base(boids)

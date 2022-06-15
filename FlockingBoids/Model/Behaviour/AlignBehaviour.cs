@@ -2,7 +2,7 @@
 {
     internal class AlignBehaviour : Behaviour
     {
-        public const float Weight = 0.05f;
+        private const float Weight = 0.05f;
 
         public AlignBehaviour(Boid[] boids) :
             base(boids)
