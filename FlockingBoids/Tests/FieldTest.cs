@@ -16,7 +16,15 @@ namespace Tests
         }
 
         [Fact]
-        public void TestExceptinFieldSize()
+        public void TestBoidNumber()
+        {
+            var field = new Field(Size, Size, Size, Size);
+            var counter = field.Boids.Count(boid => boid.IsEnemy);
+            Assert.Equal(counter, Size);
+        }
+
+        [Fact]
+        public void TestExceptionFieldSize()
         {
             Assert.Throws<Exception>(() => {
                 var field = new Field(0, 0, Size, Size);
