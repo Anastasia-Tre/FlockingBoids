@@ -7,7 +7,7 @@ namespace Tests
         private const int Size = 100;
 
         [Fact]
-        public void TestBoidNumber()
+        public void TestExceptionBoidNumber()
         {
             Assert.Throws<Exception>(() =>
             {
@@ -16,7 +16,7 @@ namespace Tests
         }
 
         [Fact]
-        public void TestFieldSize()
+        public void TestExceptinFieldSize()
         {
             Assert.Throws<Exception>(() => {
                 var field = new Field(0, 0, Size, Size);
