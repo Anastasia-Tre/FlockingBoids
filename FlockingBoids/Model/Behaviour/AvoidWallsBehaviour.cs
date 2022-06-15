@@ -9,7 +9,7 @@
 
         public AvoidWallsBehaviour(Boid[] boids, float width, float height,
             float weight)
-            : base(boids, Pad, weight)
+            : base(boids, weight)
         {
             _width = width;
             _height = height;
