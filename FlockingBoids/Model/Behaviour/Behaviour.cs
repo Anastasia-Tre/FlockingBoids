@@ -2,9 +2,9 @@
 {
     public abstract class Behaviour
     {
-        public Boid[] Boids;
         public const float Distance = 20;
         public const float Vision = 100;
+        public Boid[] Boids;
 
         protected Behaviour(Boid[] boids)
         {
