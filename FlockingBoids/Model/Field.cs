@@ -9,9 +9,6 @@ namespace Model
     {
         private readonly float _width, _height;
         public readonly Boid[] Boids;
-        
-        public float WeightAvoid = 1.0f;
-        public float WeightFlock = 1.0f;
 
         public Field(float width, float height, int boidsCount, int enemyCount)
         {
@@ -31,7 +28,7 @@ namespace Model
         {
             var behaviours = new List<Behaviour.Behaviour>
             {
-                new FlockBehaviour(Boids, 0.0005f * WeightFlock),
+                new FlockBehaviour(Boids),
                 new AlignBehaviour(Boids),
                 new AvoidBoidsBehaviour(Boids),
                 new AvoidEnemiesBehaviour(Boids),

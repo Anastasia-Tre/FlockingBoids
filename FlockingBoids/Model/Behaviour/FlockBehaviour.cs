@@ -2,8 +2,10 @@
 {
     internal class FlockBehaviour : Behaviour
     {
-        public FlockBehaviour(Boid[] boids, float weight) :
-            base(boids, weight)
+        private const float Weight = 0.0005f;
+
+        public FlockBehaviour(Boid[] boids) :
+            base(boids)
         {
         }
 
