@@ -19,7 +19,7 @@ namespace Tests
         public void TestFieldSize()
         {
             Assert.Throws<Exception>(() => {
-                var field = new Field(0, 0, Size, Size + 1);
+                var field = new Field(0, 0, Size, Size);
             });
         }
     }

@@ -17,6 +17,9 @@ namespace Model
 
         public Field(float width, float height, int boidsCount, int enemyCount)
         {
+            if (width <= 0 || height <= 0)
+                throw new Exception(
+                    "Wrong size of field");
             (_width, _height) = (width, height);
 
             if (enemyCount > boidsCount)
