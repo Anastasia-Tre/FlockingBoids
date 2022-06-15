@@ -2,8 +2,8 @@
 {
     internal class AvoidEnemiesBehaviour : Behaviour
     {
-        public AvoidEnemiesBehaviour(Boid[] boids, float distance, float weight)
-            : base(boids, distance, weight)
+        public AvoidEnemiesBehaviour(Boid[] boids, float weight)
+            : base(boids, weight)
         {
         }
 
@@ -11,7 +11,7 @@
         {
             foreach (var boid in Boids)
                 if (boid.IsEnemy &&
-                    boid.Position.Distance(curBoid.Position) < Distance)
+                    boid.Position.Distance(curBoid.Position) < Vision)
                     curBoid.Velocity -=
                         (boid.Position - curBoid.Position) * Weight;
         }
