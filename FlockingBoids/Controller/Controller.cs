@@ -8,11 +8,9 @@ namespace Controller
         public Field Field { get; private set; }
         public IRenderer Renderer { get; private set; }
 
-        public void CreateField(float width, float height)
+        public void CreateField()
         {
             Field = new Field(
-                width, // to fix
-                height, // to fix
                 500, // to fix
                 5 // to fix
             );

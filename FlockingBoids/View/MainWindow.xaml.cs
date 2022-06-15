@@ -34,7 +34,7 @@ namespace View
 
         private void Reset()
         {
-            _controller.CreateField((float)Width, (float)Height);
+            _controller.CreateField();
         }
 
         private void SKElement_PaintSurface(object sender,

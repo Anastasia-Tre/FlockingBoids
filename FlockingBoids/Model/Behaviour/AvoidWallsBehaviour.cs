@@ -3,7 +3,7 @@
     internal class AvoidWallsBehaviour : Behaviour
     {
         private const float Pad = 200;
-        private const float Turn = 0.1f;
+        private const float Turn = 0.3f;
         private const float Weight = 1.5f;
         private readonly float _height;
         private readonly float _width;

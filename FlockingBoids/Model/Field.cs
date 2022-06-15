@@ -10,7 +10,7 @@ namespace Model
         private float _width = 1200f, _height = 600f;
         public readonly Boid[] Boids;
 
-        public Field(float width, float height, int boidsCount, int enemyCount)
+        public Field(int boidsCount, int enemyCount)
         {
             if (enemyCount > boidsCount)
                 throw new Exception(
