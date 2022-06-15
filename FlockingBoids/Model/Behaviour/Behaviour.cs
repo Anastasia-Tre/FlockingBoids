@@ -3,13 +3,13 @@
     public abstract class Behaviour
     {
         public Boid[] Boids;
-        public float Distance;
         public float Weight;
+        public const float Distance = 20;
+        public const float Vision = 100;
 
-        protected Behaviour(Boid[] boids, float distance, float weight)
+        protected Behaviour(Boid[] boids, float weight)
         {
             Boids = boids;
-            Distance = distance;
             Weight = weight;
         }
 

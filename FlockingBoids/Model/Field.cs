@@ -9,8 +9,6 @@ namespace Model
     {
         private readonly float _width, _height;
         public readonly Boid[] Boids;
-        public float Distance = 20;
-        public float Vision = 100;
         public float WeightAlign = 1.0f;
         public float WeightAvoid = 1.0f;
         public float WeightFlock = 1.0f;
