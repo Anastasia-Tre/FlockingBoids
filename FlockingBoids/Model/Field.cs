@@ -32,7 +32,7 @@ namespace Model
             var behaviours = new List<Behaviour.Behaviour>
             {
                 new FlockBehaviour(Boids, Vision, 0.0005f * WeightFlock),
-                new AlignBehaviour(Boids, Vision, 0.05f * WeightAlign),
+                new AlignBehaviour(Boids, 0.05f * WeightAlign),
                 new AvoidBoidsBehaviour(Boids, Distance, 0.005f * WeightAvoid),
                 new AvoidEnemiesBehaviour(Boids, Vision, 0.005f * WeightAvoid),
                 new AvoidWallsBehaviour(Boids, _width, _height, 1)

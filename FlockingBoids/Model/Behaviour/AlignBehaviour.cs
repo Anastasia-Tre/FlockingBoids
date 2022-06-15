@@ -2,8 +2,8 @@
 {
     internal class AlignBehaviour : Behaviour
     {
-        public AlignBehaviour(Boid[] boids, float distance, float weight) :
-            base(boids, distance, weight)
+        public AlignBehaviour(Boid[] boids, float weight) :
+            base(boids, weight)
         {
         }
 
@@ -12,7 +12,7 @@
             var neighborCount = 0;
             var resultVelocity = new Velocity();
             foreach (var boid in Boids)
-                if (boid.Position.Distance(curBoid.Position) < Distance)
+                if (boid.Position.Distance(curBoid.Position) < Vision)
                 {
                     resultVelocity += boid.Velocity;
                     neighborCount += 1;
