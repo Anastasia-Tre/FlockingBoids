@@ -17,7 +17,7 @@ namespace View
         {
             InitializeComponent();
             _controller = new Controller.Controller();
-            Reset();
+            _controller.CreateField();
 
             _timer.Interval = TimeSpan.FromMilliseconds(10);
             _timer.Tick += TimerTick;
@@ -26,13 +26,9 @@ namespace View
 
         private void TimerTick(object sender, EventArgs e)
         {
+            _controller.Field.SetFieldSize((float)ActualWidth, (float)ActualHeight);
             _controller.Field.Advance();
             ResultField.InvalidateVisual();
-        }
-
-        private void Reset()
-        {
-            _controller.CreateField((float)Width, (float)Height);
         }
 
         private void SKElement_PaintSurface(object sender,

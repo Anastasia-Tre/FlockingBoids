@@ -7,21 +7,24 @@ namespace Model
 {
     public class Field
     {
-        private readonly float _width, _height;
+        private float _width = 1200f, _height = 600f;
         public readonly Boid[] Boids;
 
-        public Field(float width, float height, int boidsCount, int enemyCount)
+        public Field(int boidsCount, int enemyCount)
         {
-            if (width <= 0 || height <= 0)
-                throw new Exception(
-                    "Wrong size of field");
-            (_width, _height) = (width, height);
-
             if (enemyCount > boidsCount)
                 throw new Exception(
                     "Number of enemies is bigger than number of boids");
             Boids = new Boid[boidsCount];
             GenerateRandomBoids(enemyCount);
+        }
+
+        public void SetFieldSize(float width, float height)
+        {
+            if (width <= 0 || height <= 0)
+                throw new Exception(
+                    "Wrong size of field");
+            (_width, _height) = (width, height);
         }
 
         private void GenerateRandomBoids(int enemyCount)
