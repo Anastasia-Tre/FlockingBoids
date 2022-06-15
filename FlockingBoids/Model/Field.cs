@@ -35,7 +35,7 @@ namespace Model
                 new AlignBehaviour(Boids),
                 new AvoidBoidsBehaviour(Boids),
                 new AvoidEnemiesBehaviour(Boids),
-                new AvoidWallsBehaviour(Boids, _width, _height, 1)
+                new AvoidWallsBehaviour(Boids, _width, _height)
             };
 
             var rnd = new Random();
