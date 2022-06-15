@@ -33,7 +33,7 @@ namespace Model
             {
                 new FlockBehaviour(Boids, 0.0005f * WeightFlock),
                 new AlignBehaviour(Boids),
-                new AvoidBoidsBehaviour(Boids, 0.005f * WeightAvoid),
+                new AvoidBoidsBehaviour(Boids),
                 new AvoidEnemiesBehaviour(Boids, 0.005f * WeightAvoid),
                 new AvoidWallsBehaviour(Boids, _width, _height, 1)
             };
