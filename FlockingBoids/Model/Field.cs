@@ -9,7 +9,7 @@ namespace Model
     {
         private readonly float _width, _height;
         public readonly Boid[] Boids;
-        public float WeightAlign = 1.0f;
+        
         public float WeightAvoid = 1.0f;
         public float WeightFlock = 1.0f;
 
@@ -32,7 +32,7 @@ namespace Model
             var behaviours = new List<Behaviour.Behaviour>
             {
                 new FlockBehaviour(Boids, 0.0005f * WeightFlock),
-                new AlignBehaviour(Boids, 0.05f * WeightAlign),
+                new AlignBehaviour(Boids),
                 new AvoidBoidsBehaviour(Boids, 0.005f * WeightAvoid),
                 new AvoidEnemiesBehaviour(Boids, 0.005f * WeightAvoid),
                 new AvoidWallsBehaviour(Boids, _width, _height, 1)

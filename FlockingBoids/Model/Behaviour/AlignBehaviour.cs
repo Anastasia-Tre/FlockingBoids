@@ -2,8 +2,10 @@
 {
     internal class AlignBehaviour : Behaviour
     {
-        public AlignBehaviour(Boid[] boids, float weight) :
-            base(boids, weight)
+        public const float Weight = 0.05f;
+
+        public AlignBehaviour(Boid[] boids) :
+            base(boids)
         {
         }
 
