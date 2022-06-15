@@ -18,7 +18,7 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Install dependencies
-      run: dotnet restore
+      # run: dotnet restore
     - name: Build
       run: dotnet build --no-restore
     - name: Test
