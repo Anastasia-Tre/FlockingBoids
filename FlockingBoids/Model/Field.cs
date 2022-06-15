@@ -9,11 +9,6 @@ namespace Model
     {
         private readonly float _width, _height;
         public readonly Boid[] Boids;
-        public float Distance = 20;
-        public float Vision = 100;
-        public float WeightAlign = 1.0f;
-        public float WeightAvoid = 1.0f;
-        public float WeightFlock = 1.0f;
 
         public Field(float width, float height, int boidsCount, int enemyCount)
         {
@@ -33,11 +28,11 @@ namespace Model
         {
             var behaviours = new List<Behaviour.Behaviour>
             {
-                new FlockBehaviour(Boids, Vision, 0.0005f * WeightFlock),
-                new AlignBehaviour(Boids, Vision, 0.05f * WeightAlign),
-                new AvoidBoidsBehaviour(Boids, Distance, 0.005f * WeightAvoid),
-                new AvoidEnemiesBehaviour(Boids, Vision, 0.005f * WeightAvoid),
-                new AvoidWallsBehaviour(Boids, _width, _height, 1)
+                new FlockBehaviour(Boids),
+                new AlignBehaviour(Boids),
+                new AvoidBoidsBehaviour(Boids),
+                new AvoidEnemiesBehaviour(Boids),
+                new AvoidWallsBehaviour(Boids, _width, _height)
             };
 
             var rnd = new Random();

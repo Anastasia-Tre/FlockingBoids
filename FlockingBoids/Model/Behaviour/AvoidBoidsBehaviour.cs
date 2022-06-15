@@ -2,8 +2,10 @@
 {
     internal class AvoidBoidsBehaviour : Behaviour
     {
-        public AvoidBoidsBehaviour(Boid[] boids, float distance, float weight)
-            : base(boids, distance, weight)
+        private const float Weight = 0.005f;
+
+        public AvoidBoidsBehaviour(Boid[] boids)
+            : base(boids)
         {
         }
 

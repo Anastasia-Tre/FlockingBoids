@@ -2,19 +2,21 @@
 {
     internal class FlockBehaviour : Behaviour
     {
-        public FlockBehaviour(Boid[] boids, float distance, float weight) :
-            base(boids, distance, weight)
+        private const float Weight = 0.0005f;
+
+        public FlockBehaviour(Boid[] boids) :
+            base(boids)
         {
         }
 
         public override void CalcVelocity(Boid curBoid)
         {
-            Distance = curBoid.IsEnemy ? 2 * Distance : Distance;
+            var vision = curBoid.IsEnemy ? 2 * Vision : Vision;
             var neighborCount = 0;
             var resultVelocity = new Velocity();
 
             foreach (var boid in Boids)
-                if (boid.Position.Distance(curBoid.Position) < Distance)
+                if (boid.Position.Distance(curBoid.Position) < vision)
                 {
                     resultVelocity += boid.Position;
                     neighborCount += 1;

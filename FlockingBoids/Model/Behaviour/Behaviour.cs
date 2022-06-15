@@ -2,15 +2,13 @@
 {
     public abstract class Behaviour
     {
+        public const float Distance = 20;
+        public const float Vision = 100;
         public Boid[] Boids;
-        public float Distance;
-        public float Weight;
 
-        protected Behaviour(Boid[] boids, float distance, float weight)
+        protected Behaviour(Boid[] boids)
         {
             Boids = boids;
-            Distance = distance;
-            Weight = weight;
         }
 
         public abstract void CalcVelocity(Boid curBoid);

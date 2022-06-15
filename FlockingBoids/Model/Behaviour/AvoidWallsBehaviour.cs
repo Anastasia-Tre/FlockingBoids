@@ -4,12 +4,12 @@
     {
         private const float Pad = 100;
         private const float Turn = 0.1f;
+        private const float Weight = 1f;
         private readonly float _height;
         private readonly float _width;
 
-        public AvoidWallsBehaviour(Boid[] boids, float width, float height,
-            float weight)
-            : base(boids, Pad, weight)
+        public AvoidWallsBehaviour(Boid[] boids, float width, float height)
+            : base(boids)
         {
             _width = width;
             _height = height;
