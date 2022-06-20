@@ -8,8 +8,8 @@ namespace Controller
         public Field Field { get; private set; }
         public IRenderer Renderer { get; private set; }
 
-        private const int BoidsCount = 500;
-        private const int EnemyCount = 5;
+        private const int BoidsCount = 400;
+        private const int EnemyCount = 3;
 
         public void CreateField()
         {

@@ -50,7 +50,7 @@ namespace Model
                 if (i < enemyCount)
                 {
                     Boids[i].IsEnemy = true;
-                    Boids[i].Speed += .5f;
+                    Boids[i].Speed -= .5f;
                 }
 
                 behaviours.ForEach(
