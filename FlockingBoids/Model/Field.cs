@@ -7,8 +7,8 @@ namespace Model
 {
     public class Field
     {
-        private float _width = 1200f, _height = 600f;
         public readonly Boid[] Boids;
+        private float _width = 1200f, _height = 600f;
 
         public Field(int boidsCount, int enemyCount)
         {

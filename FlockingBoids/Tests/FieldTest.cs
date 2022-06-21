@@ -10,10 +10,7 @@ public class FieldTest
     [Fact]
     public void TestExceptionBoidNumber()
     {
-        Assert.Throws<Exception>(() =>
-        {
-            _field = new Field(Size, Size + 1);
-        });
+        Assert.Throws<Exception>(() => { _field = new Field(Size, Size + 1); });
     }
 
     [Fact]

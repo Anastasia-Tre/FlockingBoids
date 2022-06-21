@@ -26,7 +26,8 @@ namespace View
 
         private void TimerTick(object sender, EventArgs e)
         {
-            _controller.Field.SetFieldSize((float)ActualWidth, (float)ActualHeight);
+            _controller.Field.SetFieldSize((float)ActualWidth,
+                (float)ActualHeight);
             _controller.Field.Advance();
             ResultField.InvalidateVisual();
         }

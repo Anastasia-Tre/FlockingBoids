@@ -5,11 +5,10 @@ namespace Controller
 {
     public class Controller
     {
-        public Field Field { get; private set; }
-        public IRenderer Renderer { get; private set; }
-
         private const int BoidsCount = 400;
         private const int EnemyCount = 3;
+        public Field Field { get; private set; }
+        public IRenderer Renderer { get; private set; }
 
         public void CreateField()
         {
